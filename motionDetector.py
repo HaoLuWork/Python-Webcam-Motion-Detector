@@ -35,15 +35,18 @@ while True:
     
         
     status_list.append(status)
+
+    status_list = status_list[-2:]
+    
     if status_list[-1] == 1 and status_list[-2]==0:
         times.append(datetime.now())
     
     if status_list[-1] == 0 and status_list[-2]==1:
         times.append(datetime.now())
 
-    cv2.imshow("Gray Frame",gray)
-    cv2.imshow("Delta Frame",delta_frame)
-    cv2.imshow("Threshold Frame",thresh_frame)
+    #cv2.imshow("Gray Frame",gray)
+    #cv2.imshow("Delta Frame",delta_frame)
+    #cv2.imshow("Threshold Frame",thresh_frame)
     cv2.imshow("Color Frame",frame)
     key = cv2.waitKey(1)
     if key == ord('q'):
